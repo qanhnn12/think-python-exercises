@@ -1,8 +1,8 @@
 # Think Python: How to think like a Computer Scientist
 
-2nd Edition, Version 2.4.0
+*2nd Edition, Version 2.4.0*
 
-Copyright © 2015 Allen Downey
+*Copyright © 2015 Allen Downey*
 
 Chapter 1: The way of the program
 
