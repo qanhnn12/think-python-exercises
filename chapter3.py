@@ -21,7 +21,8 @@ def print_spam():
 do_twice(print_spam)
 
 
-# 2. Modify do_twice so that it takes two arguments, a function object and a value, and calls the function twice, passing the value as an argument.
+# 2. Modify do_twice so that it takes two arguments, a function object and a value,
+# and calls the function twice, passing the value as an argument.
 
 def do_twice(f, a):
    f(a)
