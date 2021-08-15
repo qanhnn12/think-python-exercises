@@ -57,7 +57,7 @@ do_four(print_twice, 'abc')
         
         
         
-# Exercise 3.3.
+## Exercise 3.3.
 '''
 1. Write a function that draws a grid like the following:
 + - - - - + - - - - +
