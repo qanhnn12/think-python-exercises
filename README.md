@@ -11,3 +11,5 @@ Chapter 2 - Variables, expressions and statements
 Chapter 3 - Functions
 
 Chapter 4 - Case study: interface design
+
+Chapter 5 - Conditionals and recursion
