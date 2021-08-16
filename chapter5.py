@@ -49,3 +49,36 @@ def check_triangle():
     return is_triangle(a, b, c)
 
 check_triangle()
+
+
+# Exercise 5.6.
+
+import turtle
+bob = turtle.Turtle()
+
+def koch(turtle, length):
+    if length < 3:
+        turtle.fd(length)
+        return
+    koch(turtle, length/3)
+    turtle.lt(60)
+    koch(turtle, length/3)
+    turtle.rt(120)
+    koch(turtle, length/3)
+    turtle.lt(60)
+    koch(turtle, length/3)
+
+def snowflake(turtle, length):
+    for i in range(3):
+        koch(turtle, length)
+        turtle.rt(120)
+
+koch(bob, 30)
+
+bob.pu()
+bob.fd(50)
+bob.pd()
+
+snowflake(bob, 30)
+
+turtle.mainloop()
