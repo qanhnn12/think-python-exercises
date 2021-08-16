@@ -4,8 +4,10 @@
 
 *Copyright © 2015 Allen Downey*
 
-Chapter 1: The way of the program
+Chapter 1 - The way of the program
 
-Chapter 2: Variables, expressions and statements
+Chapter 2 - Variables, expressions and statements
 
-Chapter 3: Functions
+Chapter 3 - Functions
+
+Chapter 4 - Case study: interface design
