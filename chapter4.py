@@ -82,7 +82,8 @@ def circle(t, r):
 bob = turtle.Turtle()
 circle(bob, 75)
 
-## Exercise 4.3.5.
+## Exercise 4.3.5. 
+# Write arc function that takes an additional parameter angle, which determines what fraction of a circle to draw.
 
 import turtle
 import math
