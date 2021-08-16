@@ -32,3 +32,20 @@ def input_num():
 
 input_num()
 
+
+## Exercise 5.3 - Check if three lengths could form a triangle or not
+# if any of three lengths is greater than the two other, we can't form a triangle
+
+def is_triangle(a, b, c):
+    if (a > b + c) or (b > a + c) or (c > a + b):
+        print("No")
+    else:
+        print("Yes")
+
+def check_triangle():
+    a = int(input("Choose a number for a: "))
+    b = int(input("Choose a number for b: "))
+    c = int(input("Choose c number for c: "))
+    return is_triangle(a, b, c)
+
+check_triangle()
