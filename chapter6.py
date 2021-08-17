@@ -42,15 +42,15 @@ Program prints:
 '''
 
 
-# Exercise 6.2 - Write a function named 'ack' that evaluates the Ackermann function
+# Exercise 6.2 - Write a function named ack that evaluates the Ackermann function
 
-def A(m,n):
+def ack(m,n):
     if m == 0:
         return n+1
     elif m > 0 and n == 0:
-        return A(m-1, 1)
+        return ack(m-1, 1)
     else:
-        return A(m-1, A(m, n-1))
+        return ack(m-1, ack(m, n-1))
 
 # Exercise 6.3
 # return the first character of a string
@@ -77,3 +77,22 @@ print(is_palindrome('mom'))
 print(is_palindrome('bobby'))
 print(is_palindrome('noon'))
 print(is_palindrome('danger'))
+
+
+# Exercise 6.4 - Write a function called is_power that takes parameters a and b and returns True if a is a power of b
+
+def is_power(a, b):
+    c = a / b
+    if a % b == 0 and c % b == 0:
+        return True
+    else:
+        return False
+
+print(is_power(2, 5))
+
+# Exercise 6.5 - The greatest common divisor (GMD)
+
+def gcd(a, b):
+    if a % b == 0:
+        return b
+    return gcd(b, a % b)
