@@ -44,3 +44,18 @@ def test_square_root():
         a = a + 1
 
 test_square_root()
+
+
+# EXERCISE 7.2
+
+def eval_loop():
+    while True:
+        prompt = input("Write a math equation: ")
+        if prompt == "done":
+            break
+        else:
+            new_prompt = eval(prompt)
+            print(new_prompt)
+    return eval(prompt)
+
+eval_loop()
