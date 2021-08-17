@@ -1,4 +1,4 @@
-### Exercise 3.1. 
+# EXERCISE 3.1 
 # Write a function named right_justify that takes a string named s as a parameter 
 # and prints the string with enough leading spaces so that the last letter of the string is in column 70 of the display.
 
@@ -8,7 +8,7 @@ def right_justify(s):
 right_justify('monty')
 
 
-### Exercise 3.2.
+# EXERCISE 3.2
 # 1. Type this example into a script and test it.
 
 def do_twice(f):
@@ -56,7 +56,7 @@ def do_four(print_spam, arg):
 do_four(print_twice, 'abc')
             
         
-### Exercise 3.3.
+# EXERCISE 3.3
 '''
 1. Write a function that draws a grid like the following:
 + - - - - + - - - - +
