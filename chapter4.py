@@ -1,4 +1,4 @@
-## Exercise 4.3.1.
+# EXERCISE 4.3.1
 # Write a function called square that takes a parameter named t, which is a turtle. 
 # Write a function call that passes bob as an argument to square, and run the program again.
 
@@ -12,7 +12,7 @@ def square(t):
 bob = turtle.Turtle()
 square(bob)
 
-## Exercise 4.3.2.
+# EXERCISE 4.3.2
 # Add another parameter, named length, to square.
 
 import turtle
@@ -25,7 +25,7 @@ def square(t, length):
 bob = turtle.Turtle()
 square(bob, 250)
 
-## Exercise 4.3.3.
+# EXERCISE 4.3.3
 # Write a n-sided regular polygon by adding a parameter named n.
 # Hint: The exterior angles of an n-sided regular polygon are 360/n degrees.
 
@@ -40,7 +40,7 @@ def polygon(t, n, length):
 bob = turtle.Turtle()
 polygon(bob, 6, 80)
 
-## Exercise 4.3.4.
+# EXERCISE 4.3.4
 # Write a circle, which takes a radius named r as a parameter.
 # Hint: circumference = length * n (n is constant).
 
@@ -82,7 +82,7 @@ def circle(t, r):
 bob = turtle.Turtle()
 circle(bob, 75)
 
-## Exercise 4.3.5. 
+# EXERCISE 4.3.5
 # Write arc function that takes an additional parameter angle, which determines what fraction of a circle to draw.
 
 import turtle
