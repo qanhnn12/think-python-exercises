@@ -1,4 +1,4 @@
-## Exercise 5.1 - Converts it to a time of day in hours, minutes, and seconds, plus the number of days since the epoch.
+# EXERCISE 5.1: Converts it to a time of day in hours, minutes, and seconds, plus the number of days since the epoch.
 
 import time
 total_secs = time.time()
@@ -15,7 +15,7 @@ days = int(total_secs // (3600 * 24))
 print("There have been " + str(days) +" days, " + str(hours) + " hours, " + str(minutes) + " minutes, and " + str(seconds) + " seconds since epoch.")
 
 
-## Exercise 5.2 - Check the Fermat’s Last Theorem
+# EXERCISE 5.2: Check the Fermat’s Last Theorem
 
 def check_format(a, b, c, n):
     if n > 2 and a**n + b**n == c**n:
@@ -33,7 +33,7 @@ def input_num():
 input_num()
 
 
-## Exercise 5.3 - Check if three lengths could form a triangle or not
+# EXERCISE 5.3: Check if three lengths could form a triangle or not
 # if any of three lengths is greater than the two other, we can't form a triangle
 
 def is_triangle(a, b, c):
@@ -51,7 +51,7 @@ def check_triangle():
 check_triangle()
 
 
-# Exercise 5.6.
+# EXERCISE 5.6.
 
 import turtle
 bob = turtle.Turtle()
