@@ -1,4 +1,4 @@
-# Exercise 6.1 - Draw a stack diagram for the following program. What does the program print?
+# EXERCISE 6.1: Draw a stack diagram for the following program.
 def b(z):
     prod = a(z, z)
     print(z, prod)
@@ -41,7 +41,7 @@ Program prints:
 '''
 
 
-# Exercise 6.2 - Write a function named ack that evaluates the Ackermann function
+# EXERCISE 6.2: Write a function named ack that evaluates the Ackermann function
 def ack(m,n):
     if m == 0:
         return n+1
@@ -50,7 +50,7 @@ def ack(m,n):
     else:
         return ack(m-1, ack(m, n-1))
 
-# Exercise 6.3
+# EXERCISE 6.3
 # return the first character of a string
 def first(word):
     return word[0]
@@ -77,7 +77,7 @@ print(is_palindrome('noon'))
 print(is_palindrome('danger'))
 
 
-# Exercise 6.4 - Write a function called is_power that takes parameters a and b and returns True if a is a power of b
+# EXERCISE 6.4: Write a function called is_power that takes parameters a and b and returns True if a is a power of b
 def is_power(a, b):
     c = a / b
     if a % b == 0 and c % b == 0:
@@ -88,7 +88,7 @@ def is_power(a, b):
 print(is_power(2, 5))
 
 
-# Exercise 6.5 - The greatest common divisor (GMD)
+# EXERCISE 6.5: The greatest common divisor (GMD)
 def gcd(a, b):
     if a % b == 0:
         return b
