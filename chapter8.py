@@ -14,7 +14,7 @@ print(is_palindrome('noon'))
 
 # EXERCISE 8.4
 word = str(input("Enter a string: "))
-num = int(input("Enter a rotated number: "))
+num = int(input("Enter a number: "))
 
 def rotate_word(word, num):
     new_str = ''
