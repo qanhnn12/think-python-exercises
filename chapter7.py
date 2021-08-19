@@ -61,8 +61,9 @@ eval_loop()
 
 # EXERCISE 7.3
 import math
-    
-def factorial(n):                                               # factorial function in chapter 6: part 6.5
+
+# factorial function in chapter 6: part 6.5
+def factorial(n):                                               
     if n == 0:
         return 1
     else:
@@ -70,7 +71,8 @@ def factorial(n):                                               # factorial func
         result = n * recurse
         return result
 
-def estimate_pi():                                              # function to calculate pi using Srinivasa Ramanujan's formula
+# function to calculate pi using Srinivasa Ramanujan's formula
+def estimate_pi():                                              
     total = 0
     k = 0
     fact = (2*math.sqrt(2))/9801                        
@@ -87,7 +89,8 @@ def estimate_pi():                                              # function to ca
 
 print(estimate_pi())
 
-def check_pi():                                                 # function to compare the above result with math.pi
+ # function to compare the above result with math.pi
+def check_pi():                                                
     a = math.pi
     print(a)
 
