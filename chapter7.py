@@ -1,5 +1,4 @@
 # EXERCISE 7.1
-
 import math
 from decimal import Decimal
 
@@ -47,7 +46,6 @@ test_square_root()
 
 
 # EXERCISE 7.2
-
 def eval_loop():
     while True:
         prompt = input("Write a math equation: ")
@@ -62,10 +60,9 @@ eval_loop()
 
 
 # EXERCISE 7.3
-
 import math
     
-def factorial(n):                                           # factorial function in chapter 6: part 6.5
+def factorial(n):                                               # factorial function in chapter 6: part 6.5
     if n == 0:
         return 1
     else:
@@ -73,25 +70,24 @@ def factorial(n):                                           # factorial function
         result = n * recurse
         return result
 
-def estimate_pi():                                          # function to calculate pi using Srinivasa Ramanujan's formula
+def estimate_pi():                                              # function to calculate pi using Srinivasa Ramanujan's formula
     total = 0
     k = 0
     fact = (2*math.sqrt(2))/9801                        
     while True:
-        num = factorial(4*k) * (1103 + 26390*k)             # the numerator in the second fraction
-        den = factorial(k)**4 * 396**(4*k)                  # the denominator in the second fraction
+        num = factorial(4*k) * (1103 + 26390*k)                 # the numerator in the second fraction
+        den = factorial(k)**4 * 396**(4*k)                      # the denominator in the second fraction
         term = fact * num / den
         total = total + term                                
 
-        if abs(term) < 1e-15:                               # calculate until the summation of term is smaller than 1e-15
+        if abs(term) < 1e-15:                                   # calculate until the summation of term is smaller than 1e-15
             break
         k = k + 1
     return 1 / total
 
 print(estimate_pi())
 
-
-def check_pi():                                             # function to compare the above result with math.pi
+def check_pi():                                                 # function to compare the above result with math.pi
     a = math.pi
     print(a)
 
