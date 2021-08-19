@@ -12,3 +12,14 @@ def is_palindrome(word):
 print(is_palindrome('iloveu'))
 print(is_palindrome('noon'))
 
+# EXERCISE 8.4
+word = str(input("Enter a string: "))
+num = int(input("Enter a rotated number: "))
+
+def rotate_word(word, num):
+    new_str = ''
+    for letter in word:
+        new_str = new_str + chr(ord(letter) + num)
+    print(new_str)
+
+rotate_word(word, num)
