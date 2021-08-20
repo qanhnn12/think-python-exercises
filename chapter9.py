@@ -6,6 +6,7 @@ for line in fin:
     if len(word) > 20:
         print(word)
 
+        
 # EXERCISE 9.2.
 # Write a function called has_no_e that returns True if the given word doesn’t have the letter “e” in it.
 def has_no_e(word):
@@ -55,6 +56,7 @@ for line in fin:
         count += 1
 print(count)
 
+
 # EXERCISE 9.4. 
 # Write a function named uses_only that takes a word and a string of letters, 
 # and that returns True if the word contains only letters in the list
@@ -83,6 +85,7 @@ for line in fin:
     if uses_all(word, required):
         count += 1
 print(count)
+
 
 # EXERCISE 9.6.
 # Write a function called is_abecedarian that returns True 
@@ -114,3 +117,31 @@ def is_abecedarian(word):
             return False
         i = i+1
     return True
+
+# EXERCISE 9.7.
+# This question is based on a Puzzler (http://www.cartalk.com/content/puzzlers):
+def check_triple_pairs(word):
+    i = 0
+    count = 0
+    while i < len(word)-1:
+        if word[i] == word[i+1]:
+            count += 1
+            if count == 3:
+                return True
+            i += 2
+        else:
+            i += 1
+            count = 0
+    return False
+
+def find_triple_pairs():
+    fin = open("words.txt")
+    for line in fin:
+        word = line.strip()
+        if check_triple_pairs(word):
+            print(word)
+
+find_triple_pairs()
+
+
+# EXERCISE 9.8.
