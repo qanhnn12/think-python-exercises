@@ -13,6 +13,7 @@ def nested_sum(t):
         total += sum(nest)
     return total
   
+    
 
 # EXERCISE 10.2.
 '''
@@ -28,7 +29,72 @@ def cumsum(t):
     t1 = []
     total = 0
     for x in t:
-        total = total + x
+        total += x
         t1.append(total)
     return t1
 
+
+
+# EXERCISE 10.3.
+'''
+Write a function called middle that takes a list and returns a new list that contains
+all but the first and last elements. For example:
+>>> t = [1, 2, 3, 4]
+>>> middle(t)
+[2, 3]
+'''
+
+def middle(t):
+    return t[1:-1]
+    
+    
+    
+# EXERCISE 10.4. 
+'''
+Write a function called chop that takes a list, modifies it by removing the first and
+last elements, and returns None. For example:
+>>> t = [1, 2, 3, 4]
+>>> chop(t)
+>>> t
+[2, 3]
+'''
+
+# Approach 1: Use del
+def chop(t):
+    del t[0]
+    del t[-1]
+    return t
+
+# Aproach 2: Use pop method
+def chop(t):
+    t.pop(0)
+    t.pop(-1)
+    return t
+
+
+
+# EXERCISE 10.5.
+'''
+Write a function called is_sorted that takes a list as a parameter and returns True
+if the list is sorted in ascending order and False otherwise. For example:
+>>> is_sorted([1, 2, 2])
+True
+>>> is_sorted(['b', 'a'])
+False
+'''
+
+def is_sorted(t):
+    return t == sorted(t)
+
+
+# EXERCISE 10.6.
+'''
+Two words are anagrams if you can rearrange the letters from one to spell the other.
+Write a function called is_anagram that takes two strings and returns True if they are anagrams.
+'''
+
+def anagrams(a, b):
+    return sorted(a) == sorted(b)
+
+# EXERCISE 10.7.
+'''
