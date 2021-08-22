@@ -87,6 +87,7 @@ def is_sorted(t):
     return t == sorted(t)
 
 
+
 # EXERCISE 10.6.
 '''
 Two words are anagrams if you can rearrange the letters from one to spell the other.
@@ -96,5 +97,26 @@ Write a function called is_anagram that takes two strings and returns True if th
 def anagrams(a, b):
     return sorted(a) == sorted(b)
 
+
+
 # EXERCISE 10.7.
 '''
+Write a function called has_duplicates that takes a list and returns True if there
+is any element that appears more than once. It should not modify the original list.
+'''
+
+# Approach 1: Use count
+def has_duplicates(t):
+    for x in t:
+        if t.count(x) > 1:
+            return True
+    return False
+
+# Approach 2: Use sort and list slices 
+def has_duplicates(t):
+    t.sort()
+    for i in range(len(t)-1):
+        if t[i] == t[i+1]:
+            return True
+    return False
+
