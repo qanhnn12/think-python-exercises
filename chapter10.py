@@ -213,3 +213,59 @@ print(t[:20])
 print(elapsed_time, 'seconds')
 ## runtime = 155.08912873268127 seconds
 
+
+
+# EXERCISE 10.10.
+'''
+Write a function called in_bisect that takes a sorted list and a target value and returns True if
+the word is in the list and False if it’s not.
+'''
+
+def word_list():
+    fin = open('words.txt')
+    t = []
+    for line in fin:
+        word = line.strip()
+        t.append(word)
+    t.sort()
+    return t
+
+
+def in_bisect(word_list, word):
+    if len(word_list) == 0:
+        return False
+
+    # index of the word on the middle
+    i = len(word_list) // 2
+
+    if word_list[i] == word:
+        return True
+
+    if word_list[i] > word:
+        # search the first half
+        return in_bisect(word_list[:i], word)
+    else:
+        # search the second half
+        return in_bisect(word_list[i+1:], word)
+
+    
+# Use the bisect module to perform bisection search
+import bisect    
+def in_bisect_cheat(word_list, word):
+    i = bisect.bisect_left(word_list, word)
+    if i == len(word_list):
+        return False
+    return word_list[i] == word
+
+
+word_list = word_list()
+
+
+# check the list using our function in_bisect():
+for word in ['aa', 'alien', 'allen', 'zymurgy']:
+    print(word, 'in list', in_bisect(word_list, word))
+
+    
+# check the list using  the bisect module:
+for word in ['aa', 'alien', 'allen', 'zymurgy']:
+        print(word, 'in list', in_bisect_cheat(word_list, word))
