@@ -130,7 +130,6 @@ You can estimate this probability by generating random samples of 23 birthdays a
 
 import random
 
-
 def has_duplicates(t):
     t.sort()
     for i in range(len(t)-1):
@@ -139,7 +138,7 @@ def has_duplicates(t):
     return False
 
 
-# Create a list of random intergers from 1 to 365 as birthdays
+# Create a list of random intergers from 1 to 365 as birthdays, with length n
 
 def random_bdays(n):
     t = []
@@ -149,7 +148,7 @@ def random_bdays(n):
     return t
 
 
-# Generates a sample of birthdays and counts duplicates
+# Given the number of students and number of simmulations, counts duplicates
 
 def count_matches(num_students, num_simulations):
     count = 0
@@ -164,3 +163,53 @@ def count_matches(num_students, num_simulations):
 
 
 count_matches(23, 1000)
+
+
+
+# EXERCISE 10.9. 
+'''
+Write a function that reads the file words.txt and builds a list with one element
+per word. Write two versions of this function, one using the append method and the other using
+the idiom t = t + [x]. Which one takes longer to run? Why?
+'''
+
+# Approach 1: Use append method
+import time
+def word_list_1():
+    fin = open('words.txt')
+    t = []
+    for line in fin:
+        word = line.strip()
+        t.append(word)
+    return t
+
+start_time = time.time()
+t = word_list_1()
+elapsed_time = time.time() - start_time
+
+print(len(t))
+print(t[:20])
+print(elapsed_time, 'seconds')
+## runtime = 0.04042410850524902 seconds
+
+
+# Approach 2: Use the idiom t = t + [x]
+import time
+
+def word_list_2():
+    fin = open('words.txt')
+    t = []
+    for line in fin:
+        word = line.strip()
+        t = t + [word]
+    return t
+
+start_time = time.time()
+t = word_list_2()
+elapsed_time = time.time() - start_time
+
+print(len(t))
+print(t[:20])
+print(elapsed_time, 'seconds')
+## runtime = 0.92042410850524902 seconds
+
