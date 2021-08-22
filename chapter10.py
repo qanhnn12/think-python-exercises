@@ -94,7 +94,7 @@ Two words are anagrams if you can rearrange the letters from one to spell the ot
 Write a function called is_anagram that takes two strings and returns True if they are anagrams.
 '''
 
-def anagrams(a, b):
+def is_anagrams(a, b):
     return sorted(a) == sorted(b)
 
 
@@ -120,3 +120,47 @@ def has_duplicates(t):
             return True
     return False
 
+
+
+# EXERCISE 10.8.
+'''
+If there are 23 students in your class, what are the chances that two of them have the same birthday?
+You can estimate this probability by generating random samples of 23 birthdays and checking for matches
+'''
+
+import random
+
+
+def has_duplicates(t):
+    t.sort()
+    for i in range(len(t)-1):
+        if t[i] == t[i+1]:
+            return True
+    return False
+
+
+# Create a list of random intergers from 1 to 365 as birthdays
+
+def random_bdays(n):
+    t = []
+    for i in range(n):
+        bday = random.randint(1, 365)
+        t.append(bday)
+    return t
+
+
+# Generates a sample of birthdays and counts duplicates
+
+def count_matches(num_students, num_simulations):
+    count = 0
+    for i in range(num_simulations):
+        t = random_bdays(num_students)
+        if has_duplicates(t):
+            count += 1
+
+    print('After %d simulations' % num_simulations)
+    print('with %d students' % num_students)
+    print('there were %d simulations with at least one match' % count)
+
+
+count_matches(23, 1000)
