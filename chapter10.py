@@ -211,5 +211,5 @@ elapsed_time = time.time() - start_time
 print(len(t))
 print(t[:20])
 print(elapsed_time, 'seconds')
-## runtime = 0.92042410850524902 seconds
+## runtime = 155.08912873268127 seconds
 
