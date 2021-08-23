@@ -304,3 +304,51 @@ word_list = word_list()
 for word in word_list:
     if reverse_pair(word_list, word):
         print(word, word[::-1])
+
+        
+ 
+# EXERCISE 10.12.
+import bisect
+
+def word_list():
+    fin = open('words.txt')
+    t = []
+    for line in fin:
+        word = line.strip()
+        t.append(word)
+    t.sort()
+    return t
+
+
+def in_bisect_cheat(word_list, word):
+    i = bisect.bisect_left(word_list, word)
+    if i == len(word_list):
+        return False
+    return word_list[i] == word
+
+
+def interlock(word_list, word):
+    evens = word[::2]
+    odds = word[1::2]
+    return in_bisect_cheat(word_list, evens) and in_bisect_cheat(word_list, odds)
+
+
+def interlock_general(word_list, word, n):
+    for i in range(n):
+        inter = word[i::n]
+        if not in_bisect_cheat(word_list, inter):
+            return False
+        return True
+
+
+word_list = word_list()
+
+
+for word in word_list:
+    if interlock(word_list, word):
+        print(word, word[::2], word[1::2])
+
+        
+for word in word_list:
+    if interlock_general(word_list, word, 3):
+        print(word, word[0::3], word[1::3], word[2::3])
