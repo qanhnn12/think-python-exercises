@@ -266,6 +266,41 @@ for word in ['aa', 'alien', 'allen', 'zymurgy']:
     print(word, 'in list', in_bisect(word_list, word))
 
     
-# check the list using  the bisect module:
+# check the list using the bisect module:
 for word in ['aa', 'alien', 'allen', 'zymurgy']:
         print(word, 'in list', in_bisect_cheat(word_list, word))
+
+        
+        
+# EXERCISE 10.11.
+
+import bisect
+
+def word_list():
+    fin = open('words.txt')
+    t = []
+    for line in fin:
+        word = line.strip()
+        t.append(word)
+    t.sort()
+    return t
+
+
+def in_bisect_cheat(word_list, word):
+    i = bisect.bisect_left(word_list, word)
+    if i == len(word_list):
+        return False
+    return word_list[i] == word
+
+
+def reverse_pair(word_list, word):
+    rv_word = word[::-1]
+    return in_bisect_cheat(word_list, rv_word)
+
+
+word_list = word_list()
+
+
+for word in word_list:
+    if reverse_pair(word_list, word):
+        print(word, word[::-1])
