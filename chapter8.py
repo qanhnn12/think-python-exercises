@@ -12,7 +12,7 @@ def is_palindrome(word):
 print(is_palindrome('iloveu'))
 print(is_palindrome('noon'))
 
-# EXERCISE 8.4
+# EXERCISE 8.5.
 word = str(input("Enter a string: "))
 num = int(input("Enter a number: "))
 
