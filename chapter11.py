@@ -31,7 +31,7 @@ def letter_count(sentence, letter):
 sentence = "no matter how difficult this exercise is, i will complete it."
 alphabet_list = alphabet()
 
-# count how many times each alphabet the appears
+# count how many times each alphabet appears
 for i in alphabet_list:
     print(i, letter_count(sentence, i))
 
