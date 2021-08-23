@@ -326,13 +326,14 @@ def in_bisect_cheat(word_list, word):
         return False
     return word_list[i] == word
 
-
+# Checks whether a word contains two interleaved words
 def interlock(word_list, word):
     evens = word[::2]
     odds = word[1::2]
     return in_bisect_cheat(word_list, evens) and in_bisect_cheat(word_list, odds)
 
-
+# Checks whether a word contains two interleaved words with 
+# n is the number of interleaved words
 def interlock_general(word_list, word, n):
     for i in range(n):
         inter = word[i::n]
