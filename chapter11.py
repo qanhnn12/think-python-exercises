@@ -53,3 +53,35 @@ sentence = "No matter how difficult this exercise is, I will complete it."
 for i in sentence:
     print(i, letter_count(sentence, i))
 
+
+'''
+Approach 3: You could create a dictionary with characters as keys and counters as the corresponding values. 
+The first time you see a character, you would add an item to the dictionary.
+After that you would increment the value of an existing item.
+'''
+
+## Use if
+
+def histogram(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+    return d
+
+
+h = histogram('brontosaurus')
+print(h)
+
+## Replace if with the method get
+def histogram(s):
+    d = dict()
+    for c in s:
+        d[c] = 1 + d.get(c, 0)
+    return d
+
+
+h = histogram('brontosaurus')
+print(h)
