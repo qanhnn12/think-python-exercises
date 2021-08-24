@@ -8,6 +8,7 @@ and increment the appropriate counter.
 
 '''
 
+## If we count on each letter of the alphabet system
 import string
 
 # use string module to create a list of alphabet letters
@@ -28,11 +29,27 @@ def letter_count(sentence, letter):
     return count
 
 
-sentence = "no matter how difficult this exercise is, i will complete it."
+sentence = "No matter how difficult this exercise is, I will complete it."
 alphabet_list = alphabet()
 
-# count how many times each alphabet appears
+# count how many times each alphabet letter appears
 for i in alphabet_list:
-    print(i, letter_count(sentence, i))
+    print(i, letter_count(sentence.lower(), i))
 
+
+    
+## If we count only on each letter of the sentence:
+def letter_count(sentence, letter):
+    count = 0
+    for c in sentence:
+        if ord(c) == ord(letter):
+            count += 1
+    return count
+
+
+sentence = "No matter how difficult this exercise is, I will complete it."
+
+# count how many times each alphabet letter appears
+for i in sentence:
+    print(i, letter_count(sentence, i))
 
