@@ -96,7 +96,10 @@ If you did Exercise 10.10, you can compare the speed of this implementation with
 and the bisection search.
 '''
 
-def word_list():
+# Use dictionary: 0.058892011642456055 seconds
+
+import time
+def word_dict():
     d = dict()
     fin = open('words.txt')
     for line in fin:
@@ -110,13 +113,41 @@ def check_word(d, word):
 
 
 start_time = time.time()
-word_list = word_list()
+word_dict = word_dict()
 elapsed_time = time.time() - start_time
 
-for word in {'aa': 1, 'alien': 1, 'allen': 1, 'zymurgy': 1}:
-    print(word, 'in dictionary is', check_word(word_list, word))
+print(check_word(word_dict, 'swear'))
 print(elapsed_time, 'seconds')
 
 
-# In operator in list and bisection search:
+# Use in operator: 0.04341888427734375 seconds
+
+import time
+
+def word_list():
+    fin = open('words.txt')
+    t = []
+    for line in fin:
+        word = line.strip()
+        t.append(word)
+    return t
+
+def check_word(word_list, word):
+    for w in word_list:
+        if word == w:
+            return True
+    return False
+
+start_time = time.time()
+word_list = word_list()
+
+# check the list using our function in_bisect():
+print(check_word(word_list, 'swear'))
+elapsed_time = time.time() - start_time
+
+print(elapsed_time, 'seconds')
+
+
+# Use bi_insect() function: 0.05539584159851074 seconds
+
 
