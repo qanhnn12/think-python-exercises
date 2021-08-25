@@ -1,22 +1,16 @@
-
-
 # EXERCISE 11.1.
-'''
-Write a function that reads the words in words.txt and stores them as keys in a
-dictionary. It doesn’t matter what the values are. Then you can use the in operator as a fast way to
-check whether a string is in the dictionary.
-If you did Exercise 10.10, you can compare the speed of this implementation with the list in operator
-and the bisection search.
-'''
 
 # Use dictionary: 0.058892011642456055 seconds
 
 import time
+
 def word_dict():
     d = dict()
     fin = open('words.txt')
     for line in fin:
         word = line.strip()
+        
+        # assign value for each key is 1
         d[word] = 1
     return d
 
@@ -54,7 +48,6 @@ def check_word(word_list, word):
 start_time = time.time()
 word_list = word_list()
 
-# check the list using our function in_bisect():
 print(check_word(word_list, 'swear'))
 elapsed_time = time.time() - start_time
 
@@ -62,3 +55,22 @@ print(elapsed_time, 'seconds')
 
 
 # Use bi_insect() function: 0.05539584159851074 seconds
+
+
+# EXERCISE 11.2.
+
+def invert_dict(d):
+    inverse = dict()
+    for key in d:
+        val = d[key]
+        
+        # create an empty list as the value 
+        # then append (the key of d as) the value into inverse
+        inverse.setdefault(val, []).append(key)
+    return inverse
+
+d = {'a': 0, 'b': 1, 'c': 1, 'd': 2}
+
+print(invert_dict(d))
+
+# EXERCISE 11.3.
