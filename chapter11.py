@@ -85,3 +85,38 @@ def histogram(s):
 
 h = histogram('brontosaurus')
 print(h)
+
+
+# EXERCISE 11.1.
+'''
+Write a function that reads the words in words.txt and stores them as keys in a
+dictionary. It doesn’t matter what the values are. Then you can use the in operator as a fast way to
+check whether a string is in the dictionary.
+If you did Exercise 10.10, you can compare the speed of this implementation with the list in operator
+and the bisection search.
+'''
+
+def word_list():
+    d = dict()
+    fin = open('words.txt')
+    for line in fin:
+        word = line.strip()
+        d[word] = 1
+    return d
+
+
+def check_word(d, word):
+    return word in d
+
+
+start_time = time.time()
+word_list = word_list()
+elapsed_time = time.time() - start_time
+
+for word in {'aa': 1, 'alien': 1, 'allen': 1, 'zymurgy': 1}:
+    print(word, 'in dictionary is', check_word(word_list, word))
+print(elapsed_time, 'seconds')
+
+
+# In operator in list and bisection search:
+
