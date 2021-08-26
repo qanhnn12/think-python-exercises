@@ -32,6 +32,7 @@ def ack(m,n):
     else:
         return ack(m-1, ack(m, n-1))
 
+    
 # EXERCISE 6.3
 # return the first character of a string
 def first(word):
@@ -47,9 +48,9 @@ def middle(word):
 
 # is_palindrome function that returns True if it is a palindrome and False otherwise
 def is_palindrome(word):
-    if len(word) > 1 and first(word) == last(word):
+    if len(word) < 1:
         return True
-    else:
+    elif first(word) != last(word):
         return False
     return is_palindrome(middle(word))
 
