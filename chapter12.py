@@ -9,9 +9,9 @@ def histogram(s):
 def most_frequent(s):
     hist = histogram(s)
 
-    # create a list of tuples from the hist dictionary
-    # append the frequency-character tuple in the list
-    # sort the tuple based on the frequency in descending order
+    # from the hist dictionary, create a list of tuples 
+    # append the frequency-character (instead of character-frequency) tuples in the list
+    # to sort the tuples based on the frequency in descending order
     
     t = []
     for c, freq in hist.items():
