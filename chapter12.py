@@ -24,7 +24,7 @@ def most_frequent(s):
 
     t.sort(reverse=True)
 
-    # from the list of frequency-character tuples, take out the letters
+    # from the list of frequency-character tuples, take out the characters
     result = []
     for freq, c in t:
         result.append(c)
@@ -65,10 +65,12 @@ def all_anagrams():
             d[t].append(word)
     return d
 
+
 def anagram_sets(d):
     for v in d.values():
         
-        # if each key has only 1 value, it doesn't have any anagram in the word list
+        # if each key has only 1 value,
+        # it doesn't have any anagram in the word list
         if len(v) > 1:
             print(v)
   
@@ -82,7 +84,7 @@ anagram_sets(d)
 followed by the second longest, and so on.
 '''
 
-# replace the anagram_sets by this function
+# replace the anagram_sets() by this function
 def anagram_sets_length_desc(d):
     t = []
     for v in d.values():
@@ -105,7 +107,6 @@ the board, to form an eight-letter word. What collection of 8 letters forms the 
 bingos? 
 '''
 
-
 # Select only the words in d that have 8 letters
 def filter_length(d):
     res = {}
@@ -117,3 +118,25 @@ def filter_length(d):
 
 d = all_anagrams()
 anagram_sets_length_desc(filter_length(d))
+
+
+# EXERCISE 12.3.
+
+# if there are only 2 differences between two words, they are metathesis_pairs
+def word_diff(word1, word2):
+    count = 0
+    for c1, c2 in zip(word1, word2):
+        if c1 != c2:
+            count += 1
+    return count
+
+
+def metathesis_pairs(d):
+    for anagrams in d.values():
+        for word1 in anagrams:
+            for word2 in anagrams:
+                if word1 < word2 and word_diff(word1, word2) == 2:
+                    print(word1, word2)
+
+
+metathesis_pairs(all_anagrams())
