@@ -50,22 +50,20 @@ def ordered_string(s):
     return t
 
 
-# create a dictionary that maps from a collection of letters 
-# to a list of words that can be spelled with those letters
-def all_anagrams():    
+# find all anagrams in the list of words
+def all_anagrams():
     d = dict()
-    for line in open('word.txt'):
+    for line in open('words.txt'):
         word = line.strip().lower()
-        
-        # t is a string that contains all letters
-        # from which can form a word in the list
         t = ordered_string(word)
-        
+
+        # t is a collection of letters
+        # from which can form a word in the list
         if t not in d:
             d[t] = [word]
         else:
             d[t].append(word)
-        return d
+    return d
 
 def anagram_sets(d):
     for v in d.values():
@@ -90,11 +88,12 @@ def anagram_sets_length_desc(d):
     for v in d.values():
         if len(v) > 1:
             t.append((len(v),v))
-   
     t.sort(reverse=True)
 
-    for lgth, ana in t:
-        print(ana)
+    # print the length and lists of anagrams
+    for x in t:
+        print(x)
+
         
 d = all_anagrams()
 anagram_sets_length_desc(d)
@@ -103,6 +102,18 @@ anagram_sets_length_desc(d)
 '''
 3. In Scrabble a “bingo” is when you play all seven tiles in your rack, along with a letter on
 the board, to form an eight-letter word. What collection of 8 letters forms the most possible
-bingos?
+bingos? 
 '''
 
+
+# Select only the words in d that have 8 letters
+def filter_length(d):
+    res = {}
+    for word, anagrams in d.items():
+        if len(word) == 8:
+            res[word] = anagrams
+    return res
+
+
+d = all_anagrams()
+anagram_sets_length_desc(filter_length(d))
