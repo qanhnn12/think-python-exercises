@@ -52,9 +52,9 @@ def ordered_string(s):
 
 # create a dictionary that maps from a collection of letters 
 # to a list of words that can be spelled with those letters
-def all_anagrams(filename):    
+def all_anagrams():    
     d = dict()
-    for line in open(filename):
+    for line in open('word.txt'):
         word = line.strip().lower()
         
         # t is a string that contains all letters
@@ -65,7 +65,7 @@ def all_anagrams(filename):
             d[t] = [word]
         else:
             d[t].append(word)
-            
+        return d
 
 def anagram_sets(d):
     for v in d.values():
@@ -79,8 +79,30 @@ d = all_anagrams()
 anagram_sets(d)
      
 
-
 '''
 2. Modify the previous program so that it prints the longest list of anagrams first, 
 followed by the second longest, and so on.
 '''
+
+# replace the anagram_sets by this function
+def anagram_sets_length_desc(d):
+    t = []
+    for v in d.values():
+        if len(v) > 1:
+            t.append((len(v),v))
+   
+    t.sort(reverse=True)
+
+    for lgth, ana in t:
+        print(ana)
+        
+d = all_anagrams()
+anagram_sets_length_desc(d)
+
+
+'''
+3. In Scrabble a “bingo” is when you play all seven tiles in your rack, along with a letter on
+the board, to form an eight-letter word. What collection of 8 letters forms the most possible
+bingos?
+'''
+
