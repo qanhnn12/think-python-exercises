@@ -120,6 +120,7 @@ d = all_anagrams()
 anagram_sets_length_desc(filter_length(d))
 
 
+
 # EXERCISE 12.3.
 
 # if there are only 2 differences between two words, they are metathesis_pairs
