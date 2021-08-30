@@ -3,10 +3,9 @@ Exercise 13.1. Write a program that reads a file, breaks each line into words, s
 punctuation from the words, and converts them to lowercase.
 '''
 
-# create a dict in which each item shows how many times each word was used
-
 import string
 
+# create a dict in which each item shows how many times each word was used
 def read_file(filename):
     d = {}
     data = open(filename)
@@ -15,7 +14,7 @@ def read_file(filename):
     for line in data:
         line = line.replace('-', ' ')
 
-     # for each line in the data, replace the hyphen by the empty string
+     # for each splited line, remove the punctuation and whitespace,turn each word into the lowercase
         for word in line.split():
             word = word.strip(string.punctuation + string.whitespace)
             word = word.lower()
@@ -36,12 +35,12 @@ Print the number of different words used in the book. Compare different books by
 written in different eras. Which author uses the most extensive vocabulary?
 '''
 
-# total number of words = sum of the frequencies of each word in the book
+# total number of words = sum of the frequencies in the book
 def total_words(d):
     return sum(d.values())
 
 
-# the number of different words = the number of key-value pairs
+# total number of DIFFERENT words = the number of key-value pairs
 def different_word(d):
     return len(d)
 
@@ -57,6 +56,8 @@ Exercise 13.3. Modify the program from the previous exercise to print the 20 mos
 words in the book.
 '''
 
+# Approach 1: Use dictionary and tuples
+
 def common_words(d):
     dc = []
     for word, freq in d.items():
@@ -65,7 +66,7 @@ def common_words(d):
     return dc
 
 
-d = read_file('filename')
+d = read_file(filename)
 t = common_words(d)
 
 print('The most common words are:')
@@ -74,6 +75,20 @@ for freq, word in t[:20]:
     
     
     
+# Approach 2: Use sorted
+def common_words(d):
+    dc = sorted(d.items(), key=lambda item: item[1], reverse=True)
+    return dc
+
+d = read_file(filename)
+t = common_words(d)
+
+print('The most common words are:')
+for word, freq in t[:20]:
+    print(word, freq, sep='\t')
+
+
+
 '''
 Exercise 13.4. Modify the previous program to read a word list (see Section 9.1) and then print all
 the words in the book that are not in the word list. How many of them are typos? How many of
@@ -94,3 +109,16 @@ diff = subtract(d1,d2)
 print("Words in the books that are not in the word list are:")
 for word in diff:
     print(word, end=' ')
+
+    
+    
+'''
+Exercise 13.5. Write a function named choose_from_hist that takes a histogram as defined in
+Section 11.2 and returns a random value from the histogram, chosen with probability in proportion
+to frequency. For example, for this histogram:
+>>> t = ['a', 'a', 'b']
+>>> hist = histogram(t)
+>>> hist
+{'a': 2, 'b': 1}
+your function should return 'a' with probability 2/3 and 'b' with probability 1/3.
+'''
