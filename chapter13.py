@@ -23,6 +23,7 @@ def read_file(filename):
             d[word] = d.get(word, 0) + 1
     return d
   
+    
   
   '''
   Exercise 13.2. Go to Project Gutenberg (http: // gutenberg. org ) and download your favorite
@@ -45,9 +46,10 @@ def different_word(d):
     return len(d)
 
 
-d = read_file('28500-8.txt')
+d = read_file('filename')
 print('Total number of words:', total_words(d))
 print('Number of different words:', different_word(d))
+
 
 
 '''
@@ -55,3 +57,40 @@ Exercise 13.3. Modify the program from the previous exercise to print the 20 mos
 words in the book.
 '''
 
+def common_words(d):
+    dc = []
+    for word, freq in d.items():
+        dc.append((freq, word))
+    dc.sort(reverse=True)
+    return dc
+
+
+d = read_file('filename')
+t = common_words(d)
+
+print('The most common words are:')
+for freq, word in t[:20]:
+    print(word, freq, sep='\t')         # use the keyword argument sep to tell print to use a tab character as a “separator”
+    
+    
+    
+'''
+Exercise 13.4. Modify the previous program to read a word list (see Section 9.1) and then print all
+the words in the book that are not in the word list. How many of them are typos? How many of
+them are common words that should be in the word list, and how many of them are really obscure?
+'''
+
+def subtract(d1, d2):
+    res = dict()
+    for key in d1:
+        if key not in d2:
+            res[key] = None
+    return res
+
+d1 = read_file('28500-8.txt')
+d2 = read_file('words.txt')
+
+diff = subtract(d1,d2)
+print("Words in the books that are not in the word list are:")
+for word in diff:
+    print(word, end=' ')
