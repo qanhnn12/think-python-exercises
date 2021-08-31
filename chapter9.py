@@ -75,7 +75,7 @@ def uses_only(word, available):
     for letter in word:
         if letter not in available:
             return False
-        return True
+    return True
     
 # EXERCISE 9.5.
 # Write a function named uses_only that takes a word and a string of letters, 
@@ -85,7 +85,7 @@ def uses_all(word, required):
     for letter in required:
         if letter not in word:
             return False
-        return True
+    return True
 
 # How many words are there that use all the vowels aeiou? How about aeiouy?
 
