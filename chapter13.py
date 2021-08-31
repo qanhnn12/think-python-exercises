@@ -125,16 +125,22 @@ to frequency. For example, for this histogram:
 your function should return 'a' with probability 2/3 and 'b' with probability 1/3.
 '''
 
-def choose_from_hist(d):
-    t = []
-    for word, freq in d.items():
-        t.extend([word] * freq)
-    return random.choice(t)
+def histogram(s):
+    d = dict()
+    for c in s:
+        d[c] = 1 + d.get(c, 0)
+    return d
+
+
+def choose_from_hist(h):
+    random_key = random.choice(list(h.keys()))
+    probability = h[random_key] / sum(h.values())
+    print('Random value is "{}" and its probability is {}/{}, i.e. {}.' \
+          .format(random_key, h[random_key], sum(h.values()), probability))
 
 
 d = read_file(filename)
+h = histogram(d)
+choose_from_hist(h)
 
-print("\n\nHere are some random words from the book:")
 
-for i in range(100):
-    print(choose_from_hist(d), end=' ')
