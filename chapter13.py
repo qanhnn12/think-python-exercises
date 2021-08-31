@@ -144,3 +144,52 @@ h = histogram(d)
 choose_from_hist(h)
 
 
+
+'''
+Exercise 13.6. Use set to write a program that uses set subtraction to find words
+in the book that are not in the word list.
+'''
+
+# another way to do the exercise 13.4
+def subtract(d1, d2):
+    return set(d1) - set(d2)
+
+
+
+'''
+Exercise 13.7. Use an alternate way to write a program that to choose a random word from the book.
+
+An alternative is:
+1. Use keys to get a list of the words in the book.
+2. Build a list that contains the cumulative sum of the word frequencies (see Exercise 10.2). 
+The last item in this list is the total number of words in the book, n.
+3. Choose a random number from 1 to n. Use a bisection search (See Exercise 10.10) to
+find the index where the random number would be inserted in the cumulative sum.
+4. Use the index to find the corresponding word in the word list
+'''
+
+import random
+from bisect import bisect
+
+def random_word(d):
+    words = []
+    freqs = []
+    total_freq = 0
+
+    # make a list of words and a list of cumulative frequencies
+    for word, freq in d.items():
+        total_freq += freq
+        words.append(word)
+        freqs.append(freq)
+
+    # choose a random value and find its location in the cumulative list
+    x = random.randint(0, total_freq-1)
+    index = bisect(freqs, x)
+    return words[index]
+
+
+d = read_file(filename)
+
+print("\n\nHere are some random words from the book")
+    for i in range(100):
+        print(random_word(d), end=' ')
