@@ -6,27 +6,37 @@ punctuation from the words, and converts them to lowercase.
 import string
 
 # create a dict in which each item shows how many times each word was used
-def read_file(filename):
+def read_file(filename, skip_header):
     d = {}
     data = open(filename)
-    
-    # for each line in the data, replace the hyphens by spaces
+
+    # skip the header
+    if skip_header:
+        for line in data.readline():
+            if line.startswith('***START OF THIS'):
+                break
+                
+    # read the file until it reaches the end
     for line in data:
+        if line.startswith('***END OF THIS'):
+            break
+
+    # for each line in the data, replace hyphens with spaces
         line = line.replace('-', ' ')
 
-     # for each splited line, remove the punctuation and whitespace,turn each word into the lowercase
+        # for each word in the list, remove punctuation and whitespace, and convert to lowercase
         for word in line.split():
             word = word.strip(string.punctuation + string.whitespace)
             word = word.lower()
-            
-            # increment the value by 1 if the word(key) hasn't existed in the dictionary
+
+            # map from word to frequency
             d[word] = d.get(word, 0) + 1
     return d
   
     
-  
+    
   '''
-  Exercise 13.2. Go to Project Gutenberg (http: // gutenberg. org ) and download your favorite
+Exercise 13.2. Go to Project Gutenberg (http: // gutenberg. org ) and download your favorite
 out-of-copyright book in plain text format.
 Modify your program from the previous exercise to read the book you downloaded, skip over the
 header information at the beginning of the file, and process the rest of the words as before.
@@ -60,11 +70,11 @@ words in the book.
 # Approach 1: Use dictionary and tuples
 
 def common_words(d):
-    dc = []
+    common = []
     for word, freq in d.items():
-        dc.append((freq, word))
-    dc.sort(reverse=True)
-    return dc
+        common.append((freq, word))
+    common.sort(reverse=True)
+    return common
 
 
 d = read_file(filename)
@@ -78,8 +88,9 @@ for freq, word in t[:20]:
     
 # Approach 2: Use sorted
 def common_words(d):
-    dc = sorted(d.items(), key=lambda item: item[1], reverse=True)
-    return dc
+    common = sorted(d.items(), key=lambda item: item[1], reverse=True)
+    return common
+
 
 d = read_file(filename)
 t = common_words(d)
@@ -102,6 +113,7 @@ def subtract(d1, d2):
         if key not in d2:
             res[key] = None
     return res
+
 
 d1 = read_file(filename1)
 d2 = read_file(filename2)
@@ -170,6 +182,7 @@ find the index where the random number would be inserted in the cumulative sum.
 
 import random
 from bisect import bisect
+
 
 def random_word(d):
     words = []
