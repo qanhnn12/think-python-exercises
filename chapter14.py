@@ -15,6 +15,7 @@ def main():
     replace = "can't"
     source = 'words.txt'
     dest = 'new_file.txt'
+    sed(pattern, replace, source, dest)
 
 if __name__ == '__main__':
     main()
