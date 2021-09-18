@@ -12,6 +12,8 @@ def square(t):
 bob = turtle.Turtle()
 square(bob)
 
+
+
 # EXERCISE 4.3.2
 # Add another parameter, named length, to square.
 
@@ -24,6 +26,8 @@ def square(t, length):
 
 bob = turtle.Turtle()
 square(bob, 250)
+
+
 
 # EXERCISE 4.3.3
 # Write a n-sided regular polygon by adding a parameter named n.
@@ -39,6 +43,7 @@ def polygon(t, n, length):
 
 bob = turtle.Turtle()
 polygon(bob, 6, 80)
+
 
 # EXERCISE 4.3.4
 # Write a circle, which takes a radius named r as a parameter.
@@ -81,6 +86,8 @@ def circle(t, r):
 
 bob = turtle.Turtle()
 circle(bob, 75)
+
+
 
 # EXERCISE 4.3.5
 # Write arc function that takes an additional parameter angle, which determines what fraction of a circle to draw.
