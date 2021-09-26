@@ -28,7 +28,7 @@ def input_num():
     b = int(input("Choose a number for b: "))
     c = int(input("Choose c number for c: "))
     n = int(input("Choose a number for n: "))
-    return check_format(a, b, c, n)
+    check_format(a, b, c, n)
 
 input_num()
 
@@ -46,7 +46,7 @@ def check_triangle():
     a = int(input("Choose a number for a: "))
     b = int(input("Choose a number for b: "))
     c = int(input("Choose c number for c: "))
-    return is_triangle(a, b, c)
+    is_triangle(a, b, c)
 
 check_triangle()
 
