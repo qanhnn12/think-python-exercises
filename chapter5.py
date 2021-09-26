@@ -12,7 +12,7 @@ minutes = int((total_secs // 60) % 60)
 hours = int((total_secs // 3600) % 24)
 days = int(total_secs // (3600 * 24))
 
-print("There have been " + str(days) +" days, " + str(hours) + " hours, " + str(minutes) + " minutes, and " + str(seconds) + " seconds since epoch.")
+print("There have been", str(days), "days,", str(hours), " hours,", str(minutes), "minutes, and", str(seconds), "seconds since epoch.")
 
 
 # EXERCISE 5.2: Check the Fermat’s Last Theorem
