@@ -61,14 +61,36 @@ print(is_palindrome('danger'))
 
 
 # EXERCISE 6.4: Write a function called is_power that takes parameters a and b and returns True if a is a power of b
-def is_power(a, b):
-    c = a / b
-    if a % b == 0 and c % b == 0:
-        return True
-    else:
-        return False
+def is_divisible(x, y):
+    """from section 6.4 textbook:
+    return a boolean whether x is divisible by y
+    x is divisible by y if the remainder when x is divided by y is 0
+    """
+    return x % y == 0
 
-print(is_power(2, 5))
+
+def is_power(a, b):
+    """return a boolean whether a is a power of b
+    a is a power of b if it is divisible by b and a/b is a power of b
+    a and b must be positive integers"""
+
+    # 1st base case: a=b, a is a power of a itself
+    if a == b:
+        return True
+    # 2nd base case: b=1, the only positive integer that is a power of '1' is '1' itself
+    elif b == 1:
+        return False
+    # call is_divisible() and call is_power() recursively
+    else:
+        return is_divisible(a, b) and is_power(a/b, b)
+
+
+# print five test cases
+print("is_power(10, 2) returns: ", is_power(10, 2))
+print("is_power(27, 3) returns: ", is_power(27, 3))
+print("is_power(1, 1) returns: ", is_power(1, 1))
+print("is_power(10, 1) returns: ", is_power(10, 1))
+print("is_power(3, 3) returns: ", is_power(3, 3))
 
 
 # EXERCISE 6.5: The greatest common divisor (GMD)
