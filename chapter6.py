@@ -53,11 +53,12 @@ print(middle(''))
 
 # is_palindrome function that returns True if it is a palindrome and False otherwise
 def is_palindrome(word):
-    if len(word) < 1:
+    if len(word) < 2:
         return True
     elif first(word) != last(word):
         return False
-    return is_palindrome(middle(word))
+    else:
+        return is_palindrome(middle(word))
 
 print(is_palindrome('mom'))
 print(is_palindrome('bobby'))
@@ -67,8 +68,7 @@ print(is_palindrome('danger'))
 
 # EXERCISE 6.4: Write a function called is_power that takes parameters a and b and returns True if a is a power of b
 def is_divisible(x, y):
-    """from section 6.4 textbook:
-    return a boolean whether x is divisible by y
+    """return a boolean whether x is divisible by y
     x is divisible by y if the remainder when x is divided by y is 0
     """
     return x % y == 0
