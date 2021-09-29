@@ -36,17 +36,20 @@ print(ack(3, 4))
 
     
 # EXERCISE 6.3
-# return the first character of a string
 def first(word):
     return word[0]
 
-# return the last character of a string
 def last(word):
     return word[-1]
 
-# return the middle characters of a string, except the first and last ones
 def middle(word):
     return word[1:-1]
+
+# return nothing when a string has equal or less than 2 letters
+print(middle('hi'))
+print(middle('i'))
+print(middle(''))
+
 
 # is_palindrome function that returns True if it is a palindrome and False otherwise
 def is_palindrome(word):
