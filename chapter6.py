@@ -100,6 +100,8 @@ print("is_power(3, 3) returns: ", is_power(3, 3))
 
 # EXERCISE 6.5: The greatest common divisor (GMD)
 def gcd(a, b):
-    if a % b == 0:
-        return b
-    return gcd(b, a % b)
+    # base case
+    if b == 0:
+        return a
+    r = a % b
+    return gcd(b, r)
