@@ -1,12 +1,19 @@
 # EXERCISE 10.1.
 
+# Approach 1:
 def nested_sum(t):
     total = 0
     for nest in t:
         total += sum(nest)
     return total
   
-    
+# Approach 2:
+def nested_sum(t):
+    k = []
+    for l in t:
+        for num in l:
+            k.append(num)
+    return sum(k)
 
 # EXERCISE 10.2.
 
