@@ -96,7 +96,7 @@ def has_duplicates(t):
     return False
 
 
-# Create a list of random intergers from 1 to 365 as birthdays, with length n
+# Create a list of random integers from 1 to 365 as birthdays, with length n
 
 def random_bdays(n):
     t = []
@@ -106,7 +106,7 @@ def random_bdays(n):
     return t
 
 
-# Counts duplicates based on the number of students and number of simmulations
+# Counts duplicates based on the number of students and number of simulations
 
 def count_matches(num_students, num_simulations):
     count = 0
@@ -143,7 +143,7 @@ elapsed_time = time.time() - start_time
 print(len(t))
 print(t[:20])
 print(elapsed_time, 'seconds')
-## runtime = 0.04042410850524902 seconds
+## runtime = 0.0628809928894043 seconds
 
 
 # Approach 2: Use the idiom t = t + [x]
@@ -187,6 +187,7 @@ def in_bisect(word_list, word):
     # index of the word on the middle
     i = len(word_list) // 2
 
+    # if it coincidentally matches the word we wanna find
     if word_list[i] == word:
         return True
 
@@ -202,7 +203,8 @@ def in_bisect(word_list, word):
 import bisect    
 def in_bisect_cheat(word_list, word):
     i = bisect.bisect_left(word_list, word)
-    if i == len(word_list):
+    # base case: traverse all items in the list but can't find the word
+    if i == len(word_list): 
         return False
     return word_list[i] == word
 
