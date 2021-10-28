@@ -8,16 +8,10 @@ and increment the appropriate counter.
 
 '''
 
-## If we count on each letter based on the alphabet system
 import string
 
 # use string module to create a list of alphabet letters
-def alphabet():
-    l = string.ascii_lowercase
-    l_list = []
-    for i in l:
-        l_list.append(i)
-    return l_list
+alphabet_list = list(string.ascii_lowercase)
 
 
 # how many times each letter appears
@@ -28,32 +22,18 @@ def letter_count(sentence, letter):
             count += 1
     return count
 
-
 sentence = "No matter how difficult this exercise is, I will complete it."
-alphabet_list = alphabet()
 
-# count how many times each alphabet letter appears in a given sentence
+## CASE 1: Count on each letter based on the alphabet system
 for i in alphabet_list:
     print(i, letter_count(sentence.lower(), i))
 
-
-    
-## If we count only on each letter of the sentence:
-def letter_count(sentence, letter):
-    count = 0
-    for c in sentence:
-        if ord(c) == ord(letter):
-            count += 1
-    return count
-
-
-sentence = "No matter how difficult this exercise is, I will complete it."
-
-# count how many times each alphabet letter in the sentence appears
+## CASE 2: Count based on each letter in the sentence:
 for i in sentence:
     print(i, letter_count(sentence, i))
 
 
+    
 '''
 Approach 3: You could create a dictionary with characters as keys and counters as the corresponding values. 
 The first time you see a character, you would add an item to the dictionary.
