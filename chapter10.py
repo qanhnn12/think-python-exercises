@@ -69,8 +69,8 @@ def is_anagrams(a, b):
 
 # Approach 1: Use count
 def has_duplicates(t):
-    for x in t:
-        if t.count(x) > 1:
+    for i in t:
+        if t.count(i) > 1:
             return True
     return False
 
