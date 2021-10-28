@@ -15,6 +15,7 @@ def nested_sum(t):
             k.append(num)
     return sum(k)
 
+
 # EXERCISE 10.2.
 
 def cumsum(t):
