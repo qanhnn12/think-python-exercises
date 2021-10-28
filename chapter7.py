@@ -62,14 +62,11 @@ eval_loop()
 # EXERCISE 7.3
 import math
 
-# factorial function in chapter 6: part 6.5
-def factorial(n):                                               
+# shorten version of the factorial function in part 6.5
+def factorial(n):
     if n == 0:
         return 1
-    else:
-        recurse = factorial(n-1)
-        result = n * recurse
-        return result
+    return n * factorial(n-1)
 
 # function to calculate pi using Srinivasa Ramanujan's formula
 def estimate_pi():                                              
