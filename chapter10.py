@@ -203,7 +203,7 @@ def in_bisect(word_list, word):
 import bisect    
 def in_bisect_cheat(word_list, word):
     i = bisect.bisect_left(word_list, word)
-    # base case: traverse all items in the list but can't find the word
+    # base case: the list is empty or the word we wanna find doesn't in the list
     if i == len(word_list): 
         return False
     return word_list[i] == word
