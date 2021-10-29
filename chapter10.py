@@ -184,14 +184,14 @@ def in_bisect(word_list, word):
     if len(word_list) == 0:
         return False
 
-    # index of the word on the middle
+    # divide the list into 2 parts
     i = len(word_list) // 2
 
     # if it coincidentally matches the word we wanna find
     if word_list[i] == word:
         return True
 
-    if word_list[i] > word:
+    elif word_list[i] > word:
         # search the first half
         return in_bisect(word_list[:i], word)
     else:
