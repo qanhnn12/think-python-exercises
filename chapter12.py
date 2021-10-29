@@ -8,19 +8,18 @@ def histogram(s):
     return d
 
 def most_frequent(s):
+    # from the h dictionary, create a list of tuples 
     h = histogram(s)
     t = []
 
-    # from the h dictionary, create a list of tuples 
     # append the frequency-letter (inst.of letter-frequency) tuples in the list
-    # to sort the tuples in descending order of frequency
-
     for freq, letter in h.items():
         t.append((freq, letter))
+        
+    # to sort the tuples in descending order of frequency
     t.sort(reverse=True)
     
     # for each tuple in the list, print each freq-letter out
-    
     for freq, letter in t:
         print(freq, letter)
 
