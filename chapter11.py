@@ -108,25 +108,41 @@ print(ack(3, 6))
 
 # EXERCISE 11.4.
 
-d = {}
+d = dict()
 
 def has_duplicates(t):
     for x in t:
-        
-        # if x is a key in dict, it can't be dupplicated
         if x in d:
             return True
-        # append the value into d (we can skip this step if we don't care about d)
         d[x] = True
     return False
 
-t = [1,2,3,4]
-print(has_duplicates(t))
 
-t.append(1)
-print(has_duplicates(t))
+def has_duplicates_1(t):
+    for x in t:
+        d[x] = True
+    return len(t) > len(d)
 
-print(d)
+
+def has_duplicates_2(t):
+    return len(t) > len(set(t))
+
+
+if __name__ == '__main__':
+    t = [1, 2, 3, 4]
+    print(has_duplicates(t))
+    t.append(1)
+    print(has_duplicates(t))
+
+    t = [1, 2, 3, 4]
+    print(has_duplicates_1(t))
+    t.append(1)
+    print(has_duplicates_1(t))
+
+    t = [1, 2, 3, 4]
+    print(has_duplicates_2(t))
+    t.append(1)
+    print(has_duplicates_2(t))
 
 
 
