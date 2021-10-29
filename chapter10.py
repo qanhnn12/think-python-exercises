@@ -244,6 +244,8 @@ def in_bisect_cheat(word_list, word):
     return word_list[i] == word
 
 
+# search the reversed word in the list using binary search
+# return True if their is the reversed word
 def reverse_pair(word_list, word):
     rv_word = word[::-1]
     return in_bisect_cheat(word_list, rv_word)
