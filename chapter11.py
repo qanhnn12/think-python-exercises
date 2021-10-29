@@ -1,35 +1,8 @@
-# EXERCISE 11.1.
+# EXERCISE 11.1. 
 
-# Use dictionary: 0.058892011642456055 seconds
-
+import bisect
 import time
 
-def word_dict():
-    d = dict()
-    fin = open('words.txt')
-    for line in fin:
-        word = line.strip()
-        
-        # assign value for each key: 1
-        d[word] = 1
-    return d
-
-
-def check_word(d, word):
-    return word in d
-
-
-start_time = time.time()
-word_dict = word_dict()
-elapsed_time = time.time() - start_time
-
-print(check_word(word_dict, 'swear'))
-print(elapsed_time, 'seconds')
-
-
-# Use in operator: 0.04341888427734375 seconds
-
-import time
 
 def word_list():
     fin = open('words.txt')
@@ -37,27 +10,59 @@ def word_list():
     for line in fin:
         word = line.strip()
         t.append(word)
+    t.sort()
     return t
 
-
-def check_word(word_list, word):
-    for w in word_list:
-        if word == w:
-            return True
-    return False
+def check_list(word_list, word):
+    return word in word_list
 
 
-start_time = time.time()
-word_list = word_list()
-
-print(check_word(word_list, 'swear'))
-elapsed_time = time.time() - start_time
-
-print(elapsed_time, 'seconds')
+def in_bisect_cheat(word_list, word):
+    i = bisect.bisect_left(word_list, word)
+    if i == len(word_list):
+        return False
+    return word_list[i] == word
 
 
-# Use bi_insect(): 0.05539584159851074 seconds
+def word_dict():
+    fin = open('words.txt')
+    d = dict()
+    for line in fin:
+        word = line.strip()
+        d[word] = 1
+    return d
 
+
+def check_dict(word_dict, word):
+    return word in word_dict
+
+
+# runtime for list with in operator: 
+start_time_list = time.time()
+check_list(word_list(), 'hallo')
+elapsed_time_list = time.time() - start_time_list
+print('For list with in operator:', elapsed_time_list, 'seconds')
+
+
+# runtime for list with binary search
+start_time_bi = time.time()
+in_bisect_cheat(word_list(), 'hallo')
+elapsed_time_bi = time.time() - start_time_bi
+print('For list with binary search:', elapsed_time_bi, 'seconds')
+
+
+# runtime for dictionary with in operator
+start_time_dict = time.time()
+check_dict(word_dict(), 'hallo')
+elapsed_time_dict = time.time() - start_time_dict
+print('For dictionary with in operator:', elapsed_time_dict, 'seconds')
+
+
+"""
+For list with in operator: 0.09282755851745605 seconds
+For list with binary search: 0.056894779205322266 seconds
+For dictionary with in operator: 0.06388330459594727 seconds
+"""
 
 
 # EXERCISE 11.2.
