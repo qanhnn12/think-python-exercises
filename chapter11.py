@@ -110,21 +110,25 @@ print(ack(3, 6))
 
 d = dict()
 
-def has_duplicates(t):
+# if the key in the list has already appeared in the dictionary, return False
+def has_duplicates(t):     
     for x in t:
-        if x in d:
+        if x in d:              
             return True
         d[x] = True
     return False
 
 
+# since dictionary has no duplicated keys, len(t) > len(d) means t has duplicated value(s).
 def has_duplicates_1(t):
     for x in t:
         d[x] = True
-    return len(t) > len(d)
+    return len(t) > len(d)      
 
 
 def has_duplicates_2(t):
+    # set can't have duplicate values
+    # read more here: https://www.programiz.com/python-programming/set
     return len(t) > len(set(t))
 
 
