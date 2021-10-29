@@ -1,38 +1,30 @@
 # EXERCISE 12.1.
 
 def histogram(s):
-    # create a dictionary in which each item is a character-frequency pair
+    # Map each letter to number of times it appears in s
     d = dict()
-    
-    # set value = 1 by default
-    # if c has already existed, increment it by 1
     for c in s:
         d[c] = 1 + d.get(c, 0)
     return d
 
-
 def most_frequent(s):
-    hist = histogram(s)
-
-    # from the hist dictionary, create a list of tuples 
-    # append the frequency-character (instead of character-frequency) tuples in the list
-    # to sort the tuples in descending order of frequency
-    
+    h = histogram(s)
     t = []
-    for c, freq in hist.items():
-        t.append((freq, c))
 
+    # from the h dictionary, create a list of tuples 
+    # append the frequency-letter (inst.of letter-frequency) tuples in the list
+    # to sort the tuples in descending order of frequency
+
+    for freq, letter in h.items():
+        t.append((freq, letter))
     t.sort(reverse=True)
+    
+    # for each tuple in the list, print each freq-letter out
+    
+    for freq, letter in t:
+        print(freq, letter)
 
-    # from the list of frequency-character tuples, take out the characters
-    result = []
-    for freq, c in t:
-        result.append(c)
-
-    return result
-
-
-print(most_frequent('pneumonoultramicroscopicsilicovolcanoconiosis'))
+most_frequent('pneumonoultramicroscopicsilicovolcanoconiosis')
 
 
 
