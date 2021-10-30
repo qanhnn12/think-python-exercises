@@ -125,8 +125,8 @@ def word_diff(word1, word2):
 def metathesis_pairs(d):
     for anagrams in d.values():
         
-        """ word1 & word 2 both go through every string in the list anagrams, 
-        so in combination, we get every pair of strings. It's a Cartesian product."""
+        """ word1 & word 2 both go through every string in each anagram list
+        and return a pair of strings. It's a Cartesian product."""
         
         for word1 in anagrams:
             for word2 in anagrams:
