@@ -114,7 +114,6 @@ anagram_sets_length_desc(filter_length(d))
 
 # EXERCISE 12.3.
 
-# if there are only 2 differences between two words, they are metathesis_pairs
 def word_diff(word1, word2):
     count = 0
     for c1, c2 in zip(word1, word2):
@@ -125,8 +124,16 @@ def word_diff(word1, word2):
 
 def metathesis_pairs(d):
     for anagrams in d.values():
+        
+        """word1 & word 2 both go through every string in the list anagrams, 
+        so in combination, we get every pair of strings. It's a Cartesian product."""
+        
         for word1 in anagrams:
             for word2 in anagrams:
+                
+                """ word1 < word2 avoids the case when word1 & word2 are the same string.
+                # if there are only 2 differences between word1 & word 2, they are metathesis_pairs"""
+                
                 if word1 < word2 and word_diff(word1, word2) == 2:
                     print(word1, word2)
 
