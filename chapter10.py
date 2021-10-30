@@ -97,7 +97,6 @@ def has_duplicates(t):
 
 
 # Create a list of random integers from 1 to 365 as birthdays, with length n
-
 def random_bdays(n):
     t = []
     for i in range(n):
@@ -190,19 +189,22 @@ def in_bisect(word_list, word):
     # if it coincidentally matches the word we wanna find
     if word_list[i] == word:
         return True
-
+        
+    # search the first half
     elif word_list[i] > word:
-        # search the first half
         return in_bisect(word_list[:i], word)
+    
+    # search the first half
     else:
-        # search the second half
         return in_bisect(word_list[i+1:], word)
 
     
 # Use the bisect module to perform bisection search
-import bisect    
+import bisect
+
 def in_bisect_cheat(word_list, word):
     i = bisect.bisect_left(word_list, word)
+    
     # base case: the list is empty or the word we wanna find isn't in the list
     if i == len(word_list): 
         return False
@@ -245,7 +247,7 @@ def in_bisect_cheat(word_list, word):
 
 
 # search the reversed word in the list using binary search
-# return True if their is the reversed word
+# return True if there is a reversed word
 def reverse_pair(word_list, word):
     rv_word = word[::-1]
     return in_bisect_cheat(word_list, rv_word)
