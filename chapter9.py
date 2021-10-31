@@ -10,6 +10,7 @@ def read_word():
 
 read_word()
 
+
         
 # EXERCISE 9.2.
 # Write a function called has_no_e that returns True if the given word doesn’t have the letter “e” in it.
@@ -21,6 +22,7 @@ def has_no_e(word):
     return True
 
 print(has_no_e('aespa'))
+
 
 # Write a program that reads words.txt and prints only the words that have no “e”
 # Compute the percentage of words in the list that have no “e”.
@@ -41,6 +43,7 @@ def pct_no_e():
     print(no_e_pct, 'percent of words in the list that have no “e”.')
 
 pct_no_e()
+
 
 
 # EXERCISE 9.3.
@@ -70,6 +73,7 @@ def read_file():
 read_file()
 
 
+
 # EXERCISE 9.4. 
 # Write a function named uses_only that takes a word and a string of letters, 
 # and that returns True if the word contains only letters in the list
@@ -79,16 +83,24 @@ def uses_only(word, available):
         if letter not in available:
             return False
     return True
-    
+
+
+
 # EXERCISE 9.5.
 # Write a function named uses_only that takes a word and a string of letters, 
 # and that returns True if the word contains only letters in the list
 
+# Approach 1:
 def uses_all(word, required):
     for letter in required:
         if letter not in word:
             return False
     return True
+
+# Approach 2:
+def uses_all(word, required):
+    return uses_only(required, word)
+
 
 # How many words are there that use all the vowels aeiou? How about aeiouy?
 
@@ -101,6 +113,7 @@ for line in fin:
     if uses_all(word, required):
         count += 1
 print(count)
+
 
 
 # EXERCISE 9.6.
@@ -137,6 +150,8 @@ def is_abecedarian(word):
         i = i+1
     return True
 
+
+
 # EXERCISE 9.7.
 # This question is based on a Puzzler (http://www.cartalk.com/content/puzzlers):
 
@@ -162,6 +177,7 @@ def find_triple_pairs():
             print(word)
 
 find_triple_pairs()
+
 
 
 # EXERCISE 9.8.
