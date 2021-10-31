@@ -38,7 +38,7 @@ def pct_no_e():
         total += 1
 
     no_e_pct = no_e_count / total * 100
-    print(no_e_pct, 'percentage of words in the list that have no “e”.')
+    print(no_e_pct, 'percent of words in the list that have no “e”.')
 
 pct_no_e()
 
@@ -47,24 +47,27 @@ pct_no_e()
 # Write a function named avoids that takes a word and a string of forbidden letters,
 # and that returns True if the word doesn’t use any of the forbidden letters.
 
-def avoid(word, forb):
-    for i in word:
-        if i == forb:
+def avoids(word, forbids):
+    for c in word:
+        if c in forbids:
             return False
     return True
 
 # Write a program that prompts the user to enter a string of forbidden letters
 # and then prints the number of words that don’t contain any of them
 
-fin = open('words.txt')
-forb = str(input("Enter a string of forbidden letter: "))
-count = 0
+def read_file():
+    forbids = input('Enter a string of forbidden letters: ')
+    fin = open('words.txt')
+    count = 0
+    for line in fin:
+        word = line.strip()
+        for c in word:
+            if avoids(word, forbids):
+                count += 1
+    print("The number of words that don't contain any forbidden letters:", count)
 
-for line in fin:
-    word = line.strip()
-    if forb not in word:                        # or use the has_no_e function above: if avoid(word, forb)
-        count += 1
-print(count)
+read_file()
 
 
 # EXERCISE 9.4. 
